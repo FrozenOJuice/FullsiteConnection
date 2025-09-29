@@ -1,0 +1,76 @@
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .nav {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .button {
+    padding: 0.75rem 1.5rem;
+    background: #0070f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .logoutButton {
+    padding: 0.75rem 1.5rem;
+    background: #d32f2f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .usersSection {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .usersList {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  
+  .userCard {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .userInfo h3 {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .role {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: white;
+  }
+  
+  .role.user {
+    background: #666;
+  }
+  
+  .role.moderator {
+    background: #ed6c02;
+  }
+  
+  .role.admin {
+    background: #d32f2f;
+  }

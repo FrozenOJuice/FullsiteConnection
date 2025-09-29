@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "username": "joel",
+        "email": "joel@example.com",
+        "hashed_password": "$2b$12$3zo3KN1PCuDfeB06XqWURe7oZxPwaSoDoQ/iZZhv1QpyidqoHlc42",
+        "role": "user"
+    },
+    {
+        "id": 2,
+        "username": "admin",
+        "email": "admin@example.com",
+        "hashed_password": "$2b$12$3nGiySD6yT/faC7ijyaOruqICArPXk9a/yOlorqUmqy2tL/YG5YQu",
+        "role": "admin"
+    },
+    {
+        "id": 3,
+        "username": "alice",
+        "email": "alice@example.com",
+        "hashed_password": "$2b$12$PoeG8pvNEpPArjAwJKub7.M7uqE4CmRJADhP7kKXAPzh3xgsfeexq",
+        "role": "user"
+    },
+    {
+        "id": 4,
+        "username": "OrangeJuice",
+        "email": "oj@example.com",
+        "hashed_password": "$2b$12$8AJiChrLCD3VLb6xtjONxeyjCrkF4/pqpGMFZHkzE8ecg6I1hqRtm",
+        "role": "user"
+    }
+]
