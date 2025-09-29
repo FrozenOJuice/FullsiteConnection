@@ -78,8 +78,17 @@ def logout():
 
 @router.get("/me", response_model=schemas.UserResponse)
 def get_current_user(current_user: schemas.UserResponse = Depends(security.get_current_user)):
-    """Get current user info (requires authentication)"""
-    return current_user
+    """Get current user info with review stats"""
+    from backend.movies.utils import get_user_review_stats
+    
+    user_dict = current_user.dict()
+    user_dict["review_stats"] = get_user_review_stats(current_user.id)
+    
+    # Add empty penalties array if not present
+    if "penalties" not in user_dict:
+        user_dict["penalties"] = []
+    
+    return user_dict
 
 @router.get("/admin-only")
 def admin_only_route(current_user = Depends(security.require_admin)):

@@ -1,10 +1,12 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from backend.authentication import router as authentication_router
+from backend.movies import router as movie_router
 
 app = FastAPI()
 
 app.include_router(authentication_router.router, prefix="/auth", tags=["auth"])
+app.router.include_router(movie_router.router)
 
 app.add_middleware(
   CORSMiddleware,
