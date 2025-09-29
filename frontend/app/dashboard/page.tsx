@@ -28,9 +28,7 @@ export default function Dashboard() {
       }
 
       const response = await fetch('http://localhost:8000/auth/me', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       })
 
       if (response.ok) {
@@ -56,33 +54,24 @@ export default function Dashboard() {
     return <div className={styles.container}>Loading...</div>
   }
 
-  if (!user) {
-    return null // Will redirect in checkAuth
-  }
+  if (!user) return null
 
   return (
     <div className={styles.container}>
       <h1>Dashboard</h1>
-      
       <div className={styles.userInfo}>
         <h2>Welcome, {user.username}!</h2>
         <p>Email: {user.email}</p>
         <p>Role: <span className={styles.role}>{user.role}</span></p>
-        
+
         <div className={styles.actions}>
           {user.role === 'admin' && (
-            <a href="/admin" className={styles.button}>
-              Admin Panel
-            </a>
+            <a href="/admin" className={styles.button}>Admin Panel</a>
           )}
           {(user.role === 'admin' || user.role === 'moderator') && (
-            <a href="/moderator" className={styles.button}>
-              Moderator Tools
-            </a>
+            <a href="/moderator" className={styles.button}>Moderator Tools</a>
           )}
-          <button onClick={logout} className={styles.logoutButton}>
-            Logout
-          </button>
+          <button onClick={logout} className={styles.logoutButton}>Logout</button>
         </div>
       </div>
     </div>

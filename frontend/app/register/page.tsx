@@ -7,7 +7,6 @@ import styles from './page.module.css'
 export default function Register() {
   const [formData, setFormData] = useState({
     username: '',
-    email: '',
     password: '',
     confirmPassword: ''
   })
@@ -16,10 +15,7 @@ export default function Register() {
   const router = useRouter()
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,23 +32,16 @@ export default function Register() {
     try {
       const response = await fetch('http://localhost:8000/auth/register', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           username: formData.username,
-          email: formData.email,
-          password: formData.password
+          password: formData.password,
         }),
       })
 
       const data = await response.json()
+      if (!response.ok) throw new Error(data.detail || 'Registration failed')
 
-      if (!response.ok) {
-        throw new Error(data.detail || 'Registration failed')
-      }
-
-      // Registration successful
       router.push('/login?message=Registration successful! Please login.')
     } catch (err: any) {
       setError(err.message)
@@ -62,68 +51,60 @@ export default function Register() {
   }
 
   return (
-    <div className={styles.container}>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <div className={styles.formGroup}>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
-          />
-        </div>
+    <div className={styles.wrapper}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Create Account</h1>
+        <p className={styles.subtitle}>Join us to get started</p>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <div className={styles.formGroup}>
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-            minLength={8}
-          />
-        </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              minLength={8}
+            />
+          </div>
 
-        <div className={styles.formGroup}>
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
+          <div className={styles.formGroup}>
+            <label htmlFor="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        {error && <div className={styles.error}>{error}</div>}
+          {error && <div className={styles.error}>{error}</div>}
 
-        <button type="submit" disabled={loading} className={styles.button}>
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
+          <button type="submit" disabled={loading} className={styles.button}>
+            {loading ? 'Registering...' : 'Register'}
+          </button>
+        </form>
 
-      <p>
-        Already have an account? <a href="/login">Login here</a>
-      </p>
+        <p className={styles.footerText}>
+          Already have an account? <a href="/login">Login here</a>
+        </p>
+      </div>
     </div>
   )
 }

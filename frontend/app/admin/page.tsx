@@ -30,9 +30,7 @@ export default function AdminPanel() {
 
       // First check if user is admin
       const userResponse = await fetch('http://localhost:8000/auth/me', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       })
 
       if (!userResponse.ok) {
@@ -48,9 +46,7 @@ export default function AdminPanel() {
 
       // Load all users
       const usersResponse = await fetch('http://localhost:8000/auth/users', {
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
+        headers: { 'Authorization': `Bearer ${token}` }
       })
 
       if (usersResponse.ok) {

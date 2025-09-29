@@ -1,117 +1,123 @@
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
-  min-height: 80vh;
+/* Wrapper centers everything */
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4e73df, #1cc88a);
+  padding: 20px;
+}
+
+/* Card container */
+.card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* Headings */
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2e2e2e;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+/* Form layout */
+.form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.25rem;
 }
 
-.hero {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #666;
-}
-
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-bottom: 4rem;
-}
-
-.feature {
-  text-align: center;
-  padding: 2rem;
-  background: #f9f9f9;
-  border-radius: 8px;
-}
-
-.feature h3 {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.feature p {
-  color: #666;
-}
-
-.cta {
-  text-align: center;
-  background: #f0f8ff;
-  padding: 3rem;
-  border-radius: 8px;
-}
-
-.cta h2 {
-  margin-bottom: 1rem;
-  color: #333;
-}
-
-.cta p {
-  margin-bottom: 2rem;
-  color: #666;
-  font-size: 1.1rem;
-}
-
-.buttons {
+.formGroup {
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: left;
 }
 
-.primaryButton {
-  padding: 1rem 2rem;
-  background: #0070f3;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  font-size: 1.1rem;
-  transition: background 0.2s;
+.formGroup label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #444;
 }
 
-.primaryButton:hover {
-  background: #0051bb;
-}
-
-.secondaryButton {
-  padding: 1rem 2rem;
-  background: transparent;
-  color: #0070f3;
-  text-decoration: none;
-  border: 2px solid #0070f3;
-  border-radius: 4px;
-  font-size: 1.1rem;
-  transition: all 0.2s;
-}
-
-.secondaryButton:hover {
-  background: #0070f3;
-  color: white;
-}
-
-.button {
-  padding: 0.75rem 1.5rem;
-  background: #0070f3;
-  color: white;
-  border: none;
-  border-radius: 4px;
+.formGroup input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
   font-size: 1rem;
-  cursor: pointer;
+  transition: border-color 0.2s ease;
 }
 
-.button:hover {
-  background: #0051bb;
+.formGroup input:focus {
+  border-color: #4e73df;
+  outline: none;
+}
+
+/* Button */
+.button {
+  background: #4e73df;
+  color: white;
+  font-weight: 600;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button:hover:not(:disabled) {
+  background: #3758c3;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Error and success messages */
+.error {
+  color: #d9534f;
+  background: #f9d6d5;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.success {
+  color: #28a745;
+  background: #d4edda;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Footer */
+.footerText {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.footerText a {
+  color: #4e73df;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footerText a:hover {
+  text-decoration: underline;
 }
